@@ -1,0 +1,2637 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_QR_PModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Tipo_Identificacion" Type="int" />
+          <Property Name="Identificacion" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Estado_Cliente" Type="int" />
+          <Property Name="Id_Direccion" Type="int" />
+          <Property Name="Fecha_Ingreso" Type="date" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" />
+          <Property Name="Id_UserName" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="ID_Departamento" />
+          </Key>
+          <Property Name="ID_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Empleado_Representante" Type="int" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="Id_Direccion" />
+          </Key>
+          <Property Name="Id_Direccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Provincia" Type="varchar" MaxLength="50" />
+          <Property Name="Sector" Type="varchar" MaxLength="50" />
+          <Property Name="Municipio" Type="varchar" MaxLength="50" />
+          <Property Name="Barrio" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion_1" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion_2" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Pais" Type="int" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="ID_Empleado" />
+          </Key>
+          <Property Name="ID_Empleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Tipo_Identificacion" Type="int" />
+          <Property Name="Identificacion" Type="varchar" MaxLength="20" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Estado_Cliente" Type="int" />
+          <Property Name="Id_Direccion" Type="int" />
+          <Property Name="Fecha_Ingreso" Type="date" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" />
+          <Property Name="Id_UserName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Id_Sucursal" Type="int" />
+          <Property Name="ID_Departamento" Type="int" />
+        </EntityType>
+        <EntityType Name="Estado_Cliente">
+          <Key>
+            <PropertyRef Name="Id_Estado_Cliente" />
+          </Key>
+          <Property Name="Id_Estado_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Estado_QR">
+          <Key>
+            <PropertyRef Name="ID_Estado_QR" />
+          </Key>
+          <Property Name="ID_Estado_QR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Estado_Transaccion">
+          <Key>
+            <PropertyRef Name="ID_Estado_Transaccion" />
+          </Key>
+          <Property Name="ID_Estado_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Pais" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ID_Tipo_Producto" Type="int" />
+        </EntityType>
+        <EntityType Name="Queja">
+          <Key>
+            <PropertyRef Name="ID_Queja" />
+          </Key>
+          <Property Name="ID_Queja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" />
+          <Property Name="Id_UserName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Id_Empleado" Type="int" />
+          <Property Name="ID_Departamento" Type="int" />
+          <Property Name="ID_Tipo_Queja" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="time" Precision="7" />
+          <Property Name="ID_Estado_QR" Type="int" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="ID_Sucursal" Type="int" />
+        </EntityType>
+        <EntityType Name="Reclamacion">
+          <Key>
+            <PropertyRef Name="ID_Reclamacion" />
+          </Key>
+          <Property Name="ID_Reclamacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" />
+          <Property Name="Id_UserName" Type="nvarchar" MaxLength="128" />
+          <Property Name="Id_Empleado" Type="int" />
+          <Property Name="ID_Departamento" Type="int" />
+          <Property Name="ID_Tipo_Reclamacion" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Hora" Type="time" Precision="7" />
+          <Property Name="ID_Estado_QR" Type="int" />
+          <Property Name="Comentario" Type="varchar(max)" />
+          <Property Name="ID_Sucursal" Type="int" />
+        </EntityType>
+        <EntityType Name="Rel_Transaccion_Producto">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="int" Nullable="false" />
+          <Property Name="ID_Producto" Type="int" Nullable="false" />
+          <Property Name="Cantidad_Producto" Type="int" />
+        </EntityType>
+        <EntityType Name="Respuesta_Cliente">
+          <Key>
+            <PropertyRef Name="ID_Respuesta_Cliente" />
+          </Key>
+          <Property Name="ID_Respuesta_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Queja" Type="int" />
+          <Property Name="Id_Reclamacion" Type="int" />
+          <Property Name="ID_Estado_Origen" Type="int" />
+          <Property Name="ID_Estado_Destino" Type="int" />
+          <Property Name="Valoracion" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Detalle" Type="varchar(max)" />
+          <Property Name="Hora" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Respuesta_Empleado">
+          <Key>
+            <PropertyRef Name="ID_Respuesta_QR" />
+          </Key>
+          <Property Name="ID_Respuesta_QR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Queja" Type="int" />
+          <Property Name="Id_Reclamacion" Type="int" />
+          <Property Name="ID_Empleado_Origen" Type="int" />
+          <Property Name="ID_Empleado_Destino" Type="int" />
+          <Property Name="ID_Departamento_Origen" Type="int" />
+          <Property Name="ID_Departamento_Destino" Type="int" />
+          <Property Name="ID_Estado_Origen" Type="int" />
+          <Property Name="ID_Estado_Destino" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="Detalle" Type="varchar(max)" />
+          <Property Name="Hora" Type="time" Precision="7" />
+          <Property Name="ID_Sucursal_Origen" Type="int" />
+          <Property Name="ID_Sucursal_Destino" Type="int" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="ID_Sucursal" />
+          </Key>
+          <Property Name="ID_Sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Empleado_Representante" Type="int" />
+        </EntityType>
+        <EntityType Name="Tipo_Identificacion">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Identificacion" />
+          </Key>
+          <Property Name="Id_Tipo_Identificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Tipo_Producto">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Producto" />
+          </Key>
+          <Property Name="ID_Tipo_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipo_Queja">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Queja" />
+          </Key>
+          <Property Name="ID_Tipo_Queja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipo_Reclamacion">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Reclamacion" />
+          </Key>
+          <Property Name="ID_Tipo_Reclamacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Transaccion">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cliente" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="ID_Estado_Transaccion" Type="int" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Id_Empleado" Type="int" />
+        </EntityType>
+        <Association Name="FK__Cliente__Id_Dire__5070F446">
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="Id_Direccion" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Direccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_Esta__4F7CD00D">
+          <End Role="Estado_Cliente" Type="Self.Estado_Cliente" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_Tipo__4E88ABD4">
+          <End Role="Tipo_Identificacion" Type="Self.Tipo_Identificacion" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Identificacion">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_User__5165187F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Id_Em__5EBF139D">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Id_Empleado_Representante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Direccion__Id_Pa__4BAC3F29">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="Id_Pais" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="Id_Pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__ID_Dep__5BE2A6F2">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Dir__5AEE82B9">
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="Id_Direccion" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Direccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Est__59FA5E80">
+          <End Role="Estado_Cliente" Type="Self.Estado_Cliente" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Suc__5CD6CB2B">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Tip__59063A47">
+          <End Role="Tipo_Identificacion" Type="Self.Tipo_Identificacion" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Identificacion">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Use__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Producto__ID_Tip__6477ECF3">
+          <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Producto">
+              <PropertyRef Name="ID_Tipo_Producto" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="ID_Tipo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Client__75A278F5">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Depart__76969D2E">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__Id_Emplea__7A672E12">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Estado__787EE5A0">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Tipo_Q__778AC167">
+          <End Role="Tipo_Queja" Type="Self.Tipo_Queja" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Queja">
+              <PropertyRef Name="ID_Tipo_Queja" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Tipo_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__Id_UserNa__797309D9">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Cl__7F2BE32F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_De__00200768">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__Id_Em__03F0984C">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Es__02084FDA">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Ti__01142BA1">
+          <End Role="Tipo_Reclamacion" Type="Self.Tipo_Reclamacion" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Reclamacion">
+              <PropertyRef Name="ID_Tipo_Reclamacion" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Tipo_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__Id_Us__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rel_Trans__ID_Pr__6EF57B66">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rel_Transaccion_Producto" Type="Self.Rel_Transaccion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="Rel_Transaccion_Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rel_Trans__ID_Tr__6E01572D">
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rel_Transaccion_Producto" Type="Self.Rel_Transaccion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaccion">
+              <PropertyRef Name="ID_Transaccion" />
+            </Principal>
+            <Dependent Role="Rel_Transaccion_Producto">
+              <PropertyRef Name="ID_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_De__0A9D95DB">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Departamento_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_De__0B91BA14">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Departamento_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Em__08B54D69">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Empleado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Em__09A971A2">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Empleado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__0C85DE4D">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Estado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__0D7A0286">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Estado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__123EB7A3">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="ID_Estado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__1332DBDC">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="ID_Estado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Qu__06CD04F7">
+          <End Role="Queja" Type="Self.Queja" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Queja">
+              <PropertyRef Name="ID_Queja" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="Id_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Qu__10566F31">
+          <End Role="Queja" Type="Self.Queja" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Queja">
+              <PropertyRef Name="ID_Queja" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="Id_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Re__07C12930">
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reclamacion">
+              <PropertyRef Name="ID_Reclamacion" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="Id_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Re__114A936A">
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reclamacion">
+              <PropertyRef Name="ID_Reclamacion" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="Id_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sucursal__Id_Emp__5FB337D6">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Sucursal">
+              <PropertyRef Name="Id_Empleado_Representante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__ID_Cl__693CA210">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Id_Em__6B24EA82">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__ID_Es__6A30C649">
+          <End Role="Estado_Transaccion" Type="Self.Estado_Transaccion" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Transaccion">
+              <PropertyRef Name="ID_Estado_Transaccion" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ID_Estado_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuejaSucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReclamacionSucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestaEmpleadoSucursalDestino">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Sucursal_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestaEmpleadoSucursalOrigen">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Sucursal_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_QR_PModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Direccion" EntityType="Self.Direccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Cliente" EntityType="Self.Estado_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_QR" EntityType="Self.Estado_QR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Transaccion" EntityType="Self.Estado_Transaccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Queja" EntityType="Self.Queja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reclamacion" EntityType="Self.Reclamacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rel_Transaccion_Producto" EntityType="Self.Rel_Transaccion_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Respuesta_Cliente" EntityType="Self.Respuesta_Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Respuesta_Empleado" EntityType="Self.Respuesta_Empleado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Identificacion" EntityType="Self.Tipo_Identificacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Queja" EntityType="Self.Tipo_Queja" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Reclamacion" EntityType="Self.Tipo_Reclamacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaccion" EntityType="Self.Transaccion" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cliente__Id_Dire__5070F446" Association="Self.FK__Cliente__Id_Dire__5070F446">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_Esta__4F7CD00D" Association="Self.FK__Cliente__Id_Esta__4F7CD00D">
+            <End Role="Estado_Cliente" EntitySet="Estado_Cliente" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_Tipo__4E88ABD4" Association="Self.FK__Cliente__Id_Tipo__4E88ABD4">
+            <End Role="Tipo_Identificacion" EntitySet="Tipo_Identificacion" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_User__5165187F" Association="Self.FK__Cliente__Id_User__5165187F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Id_Em__5EBF139D" Association="Self.FK__Departame__Id_Em__5EBF139D">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Direccion__Id_Pa__4BAC3F29" Association="Self.FK__Direccion__Id_Pa__4BAC3F29">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__ID_Dep__5BE2A6F2" Association="Self.FK__Empleado__ID_Dep__5BE2A6F2">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Dir__5AEE82B9" Association="Self.FK__Empleado__Id_Dir__5AEE82B9">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Est__59FA5E80" Association="Self.FK__Empleado__Id_Est__59FA5E80">
+            <End Role="Estado_Cliente" EntitySet="Estado_Cliente" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Suc__5CD6CB2B" Association="Self.FK__Empleado__Id_Suc__5CD6CB2B">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Tip__59063A47" Association="Self.FK__Empleado__Id_Tip__59063A47">
+            <End Role="Tipo_Identificacion" EntitySet="Tipo_Identificacion" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Use__5812160E" Association="Self.FK__Empleado__Id_Use__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Producto__ID_Tip__6477ECF3" Association="Self.FK__Producto__ID_Tip__6477ECF3">
+            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Client__75A278F5" Association="Self.FK__Queja__ID_Client__75A278F5">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Depart__76969D2E" Association="Self.FK__Queja__ID_Depart__76969D2E">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__Id_Emplea__7A672E12" Association="Self.FK__Queja__Id_Emplea__7A672E12">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Estado__787EE5A0" Association="Self.FK__Queja__ID_Estado__787EE5A0">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Tipo_Q__778AC167" Association="Self.FK__Queja__ID_Tipo_Q__778AC167">
+            <End Role="Tipo_Queja" EntitySet="Tipo_Queja" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__Id_UserNa__797309D9" Association="Self.FK__Queja__Id_UserNa__797309D9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Cl__7F2BE32F" Association="Self.FK__Reclamaci__ID_Cl__7F2BE32F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_De__00200768" Association="Self.FK__Reclamaci__ID_De__00200768">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__Id_Em__03F0984C" Association="Self.FK__Reclamaci__Id_Em__03F0984C">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Es__02084FDA" Association="Self.FK__Reclamaci__ID_Es__02084FDA">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Ti__01142BA1" Association="Self.FK__Reclamaci__ID_Ti__01142BA1">
+            <End Role="Tipo_Reclamacion" EntitySet="Tipo_Reclamacion" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__Id_Us__02FC7413" Association="Self.FK__Reclamaci__Id_Us__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rel_Trans__ID_Pr__6EF57B66" Association="Self.FK__Rel_Trans__ID_Pr__6EF57B66">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Rel_Transaccion_Producto" EntitySet="Rel_Transaccion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rel_Trans__ID_Tr__6E01572D" Association="Self.FK__Rel_Trans__ID_Tr__6E01572D">
+            <End Role="Transaccion" EntitySet="Transaccion" />
+            <End Role="Rel_Transaccion_Producto" EntitySet="Rel_Transaccion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_De__0A9D95DB" Association="Self.FK__Respuesta__ID_De__0A9D95DB">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_De__0B91BA14" Association="Self.FK__Respuesta__ID_De__0B91BA14">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Em__08B54D69" Association="Self.FK__Respuesta__ID_Em__08B54D69">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Em__09A971A2" Association="Self.FK__Respuesta__ID_Em__09A971A2">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__0C85DE4D" Association="Self.FK__Respuesta__ID_Es__0C85DE4D">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__0D7A0286" Association="Self.FK__Respuesta__ID_Es__0D7A0286">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__123EB7A3" Association="Self.FK__Respuesta__ID_Es__123EB7A3">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__1332DBDC" Association="Self.FK__Respuesta__ID_Es__1332DBDC">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Qu__06CD04F7" Association="Self.FK__Respuesta__Id_Qu__06CD04F7">
+            <End Role="Queja" EntitySet="Queja" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Qu__10566F31" Association="Self.FK__Respuesta__Id_Qu__10566F31">
+            <End Role="Queja" EntitySet="Queja" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Re__07C12930" Association="Self.FK__Respuesta__Id_Re__07C12930">
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Re__114A936A" Association="Self.FK__Respuesta__Id_Re__114A936A">
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sucursal__Id_Emp__5FB337D6" Association="Self.FK__Sucursal__Id_Emp__5FB337D6">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__ID_Cl__693CA210" Association="Self.FK__Transacci__ID_Cl__693CA210">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Id_Em__6B24EA82" Association="Self.FK__Transacci__Id_Em__6B24EA82">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__ID_Es__6A30C649" Association="Self.FK__Transacci__ID_Es__6A30C649">
+            <End Role="Estado_Transaccion" EntitySet="Estado_Transaccion" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuejaSucursal" Association="Self.FK_QuejaSucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReclamacionSucursal" Association="Self.FK_ReclamacionSucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestaEmpleadoSucursalDestino" Association="Self.FK_RespuestaEmpleadoSucursalDestino">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestaEmpleadoSucursalOrigen" Association="Self.FK_RespuestaEmpleadoSucursalOrigen">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_QR_PModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__Id_User__5165187F" FromRole="AspNetUsers" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__Id_Use__5812160E" FromRole="AspNetUsers" ToRole="Empleado" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__Id_UserNa__797309D9" FromRole="AspNetUsers" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__Id_Us__02FC7413" FromRole="AspNetUsers" ToRole="Reclamacion" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="ID_Cliente" />
+          </Key>
+          <Property Name="ID_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Tipo_Identificacion" Type="Int32" />
+          <Property Name="Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Estado_Cliente" Type="Int32" />
+          <Property Name="Id_Direccion" Type="Int32" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Precision="0" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Cliente__Id_User__5165187F" FromRole="Cliente" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Direccion" Relationship="Self.FK__Cliente__Id_Dire__5070F446" FromRole="Cliente" ToRole="Direccion" />
+          <NavigationProperty Name="Estado_Cliente" Relationship="Self.FK__Cliente__Id_Esta__4F7CD00D" FromRole="Cliente" ToRole="Estado_Cliente" />
+          <NavigationProperty Name="Tipo_Identificacion" Relationship="Self.FK__Cliente__Id_Tipo__4E88ABD4" FromRole="Cliente" ToRole="Tipo_Identificacion" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__ID_Client__75A278F5" FromRole="Cliente" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__ID_Cl__7F2BE32F" FromRole="Cliente" ToRole="Reclamacion" />
+          <NavigationProperty Name="Transaccion" Relationship="Self.FK__Transacci__ID_Cl__693CA210" FromRole="Cliente" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="ID_Departamento" />
+          </Key>
+          <Property Name="ID_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Empleado_Representante" Type="Int32" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Departame__Id_Em__5EBF139D" FromRole="Departamento" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado1" Relationship="Self.FK__Empleado__ID_Dep__5BE2A6F2" FromRole="Departamento" ToRole="Empleado" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__ID_Depart__76969D2E" FromRole="Departamento" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__ID_De__00200768" FromRole="Departamento" ToRole="Reclamacion" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="Self.FK__Respuesta__ID_De__0A9D95DB" FromRole="Departamento" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Empleado1" Relationship="Self.FK__Respuesta__ID_De__0B91BA14" FromRole="Departamento" ToRole="Respuesta_Empleado" />
+        </EntityType>
+        <EntityType Name="Direccion">
+          <Key>
+            <PropertyRef Name="Id_Direccion" />
+          </Key>
+          <Property Name="Id_Direccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Barrio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Pais" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__Id_Dire__5070F446" FromRole="Direccion" ToRole="Cliente" />
+          <NavigationProperty Name="Pais" Relationship="Self.FK__Direccion__Id_Pa__4BAC3F29" FromRole="Direccion" ToRole="Pais" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__Id_Dir__5AEE82B9" FromRole="Direccion" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="ID_Empleado" />
+          </Key>
+          <Property Name="ID_Empleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Tipo_Identificacion" Type="Int32" />
+          <Property Name="Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Estado_Cliente" Type="Int32" />
+          <Property Name="Id_Direccion" Type="Int32" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Precision="0" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Id_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Sucursal" Type="Int32" />
+          <Property Name="ID_Departamento" Type="Int32" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Empleado__Id_Use__5812160E" FromRole="Empleado" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK__Departame__Id_Em__5EBF139D" FromRole="Empleado" ToRole="Departamento" />
+          <NavigationProperty Name="Departamento1" Relationship="Self.FK__Empleado__ID_Dep__5BE2A6F2" FromRole="Empleado" ToRole="Departamento" />
+          <NavigationProperty Name="Direccion" Relationship="Self.FK__Empleado__Id_Dir__5AEE82B9" FromRole="Empleado" ToRole="Direccion" />
+          <NavigationProperty Name="Estado_Cliente" Relationship="Self.FK__Empleado__Id_Est__59FA5E80" FromRole="Empleado" ToRole="Estado_Cliente" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK__Empleado__Id_Suc__5CD6CB2B" FromRole="Empleado" ToRole="Sucursal" />
+          <NavigationProperty Name="Tipo_Identificacion" Relationship="Self.FK__Empleado__Id_Tip__59063A47" FromRole="Empleado" ToRole="Tipo_Identificacion" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__Id_Emplea__7A672E12" FromRole="Empleado" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__Id_Em__03F0984C" FromRole="Empleado" ToRole="Reclamacion" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="Self.FK__Respuesta__ID_Em__08B54D69" FromRole="Empleado" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Empleado1" Relationship="Self.FK__Respuesta__ID_Em__09A971A2" FromRole="Empleado" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Sucursal1" Relationship="Self.FK__Sucursal__Id_Emp__5FB337D6" FromRole="Empleado" ToRole="Sucursal" />
+          <NavigationProperty Name="Transaccion" Relationship="Self.FK__Transacci__Id_Em__6B24EA82" FromRole="Empleado" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="Estado_Cliente">
+          <Key>
+            <PropertyRef Name="Id_Estado_Cliente" />
+          </Key>
+          <Property Name="Id_Estado_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__Id_Esta__4F7CD00D" FromRole="Estado_Cliente" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__Id_Est__59FA5E80" FromRole="Estado_Cliente" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Estado_QR">
+          <Key>
+            <PropertyRef Name="ID_Estado_QR" />
+          </Key>
+          <Property Name="ID_Estado_QR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__ID_Estado__787EE5A0" FromRole="Estado_QR" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__ID_Es__02084FDA" FromRole="Estado_QR" ToRole="Reclamacion" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="Self.FK__Respuesta__ID_Es__0C85DE4D" FromRole="Estado_QR" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Empleado1" Relationship="Self.FK__Respuesta__ID_Es__0D7A0286" FromRole="Estado_QR" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Cliente" Relationship="Self.FK__Respuesta__ID_Es__123EB7A3" FromRole="Estado_QR" ToRole="Respuesta_Cliente" />
+          <NavigationProperty Name="Respuesta_Cliente1" Relationship="Self.FK__Respuesta__ID_Es__1332DBDC" FromRole="Estado_QR" ToRole="Respuesta_Cliente" />
+        </EntityType>
+        <EntityType Name="Estado_Transaccion">
+          <Key>
+            <PropertyRef Name="ID_Estado_Transaccion" />
+          </Key>
+          <Property Name="ID_Estado_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transaccion" Relationship="Self.FK__Transacci__ID_Es__6A30C649" FromRole="Estado_Transaccion" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="Id_Pais" />
+          </Key>
+          <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Direccion" Relationship="Self.FK__Direccion__Id_Pa__4BAC3F29" FromRole="Pais" ToRole="Direccion" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_Tipo_Producto" Type="Int32" />
+          <NavigationProperty Name="Tipo_Producto" Relationship="Self.FK__Producto__ID_Tip__6477ECF3" FromRole="Producto" ToRole="Tipo_Producto" />
+          <NavigationProperty Name="Rel_Transaccion_Producto" Relationship="Self.FK__Rel_Trans__ID_Pr__6EF57B66" FromRole="Producto" ToRole="Rel_Transaccion_Producto" />
+        </EntityType>
+        <EntityType Name="Queja">
+          <Key>
+            <PropertyRef Name="ID_Queja" />
+          </Key>
+          <Property Name="ID_Queja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cliente" Type="Int32" />
+          <Property Name="Id_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Empleado" Type="Int32" />
+          <Property Name="ID_Departamento" Type="Int32" />
+          <Property Name="ID_Tipo_Queja" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <Property Name="ID_Estado_QR" Type="Int32" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Queja__Id_UserNa__797309D9" FromRole="Queja" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Queja__ID_Client__75A278F5" FromRole="Queja" ToRole="Cliente" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK__Queja__ID_Depart__76969D2E" FromRole="Queja" ToRole="Departamento" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Queja__Id_Emplea__7A672E12" FromRole="Queja" ToRole="Empleado" />
+          <NavigationProperty Name="Estado_QR" Relationship="Self.FK__Queja__ID_Estado__787EE5A0" FromRole="Queja" ToRole="Estado_QR" />
+          <NavigationProperty Name="Tipo_Queja" Relationship="Self.FK__Queja__ID_Tipo_Q__778AC167" FromRole="Queja" ToRole="Tipo_Queja" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="Self.FK__Respuesta__Id_Qu__06CD04F7" FromRole="Queja" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Cliente" Relationship="Self.FK__Respuesta__Id_Qu__10566F31" FromRole="Queja" ToRole="Respuesta_Cliente" />
+          <Property Name="ID_Sucursal" Type="Int32" />
+          <NavigationProperty Name="Sucursal" Relationship="DB_QR_PModel.FK_QuejaSucursal" FromRole="Queja" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Reclamacion">
+          <Key>
+            <PropertyRef Name="ID_Reclamacion" />
+          </Key>
+          <Property Name="ID_Reclamacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cliente" Type="Int32" />
+          <Property Name="Id_UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Empleado" Type="Int32" />
+          <Property Name="ID_Departamento" Type="Int32" />
+          <Property Name="ID_Tipo_Reclamacion" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <Property Name="ID_Estado_QR" Type="Int32" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK__Reclamaci__Id_Us__02FC7413" FromRole="Reclamacion" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Reclamaci__ID_Cl__7F2BE32F" FromRole="Reclamacion" ToRole="Cliente" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK__Reclamaci__ID_De__00200768" FromRole="Reclamacion" ToRole="Departamento" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Reclamaci__Id_Em__03F0984C" FromRole="Reclamacion" ToRole="Empleado" />
+          <NavigationProperty Name="Estado_QR" Relationship="Self.FK__Reclamaci__ID_Es__02084FDA" FromRole="Reclamacion" ToRole="Estado_QR" />
+          <NavigationProperty Name="Tipo_Reclamacion" Relationship="Self.FK__Reclamaci__ID_Ti__01142BA1" FromRole="Reclamacion" ToRole="Tipo_Reclamacion" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="Self.FK__Respuesta__Id_Re__07C12930" FromRole="Reclamacion" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Cliente" Relationship="Self.FK__Respuesta__Id_Re__114A936A" FromRole="Reclamacion" ToRole="Respuesta_Cliente" />
+          <Property Name="ID_Sucursal" Type="Int32" />
+          <NavigationProperty Name="Sucursal" Relationship="DB_QR_PModel.FK_ReclamacionSucursal" FromRole="Reclamacion" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Rel_Transaccion_Producto">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="Int32" Nullable="false" />
+          <Property Name="ID_Producto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad_Producto" Type="Int32" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Rel_Trans__ID_Pr__6EF57B66" FromRole="Rel_Transaccion_Producto" ToRole="Producto" />
+          <NavigationProperty Name="Transaccion" Relationship="Self.FK__Rel_Trans__ID_Tr__6E01572D" FromRole="Rel_Transaccion_Producto" ToRole="Transaccion" />
+        </EntityType>
+        <EntityType Name="Respuesta_Cliente">
+          <Key>
+            <PropertyRef Name="ID_Respuesta_Cliente" />
+          </Key>
+          <Property Name="ID_Respuesta_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Queja" Type="Int32" />
+          <Property Name="Id_Reclamacion" Type="Int32" />
+          <Property Name="ID_Estado_Origen" Type="Int32" />
+          <Property Name="ID_Estado_Destino" Type="Int32" />
+          <Property Name="Valoracion" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estado_QR" Relationship="Self.FK__Respuesta__ID_Es__123EB7A3" FromRole="Respuesta_Cliente" ToRole="Estado_QR" />
+          <NavigationProperty Name="Estado_QR1" Relationship="Self.FK__Respuesta__ID_Es__1332DBDC" FromRole="Respuesta_Cliente" ToRole="Estado_QR" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Respuesta__Id_Qu__10566F31" FromRole="Respuesta_Cliente" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Respuesta__Id_Re__114A936A" FromRole="Respuesta_Cliente" ToRole="Reclamacion" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Respuesta_Empleado">
+          <Key>
+            <PropertyRef Name="ID_Respuesta_QR" />
+          </Key>
+          <Property Name="ID_Respuesta_QR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Queja" Type="Int32" />
+          <Property Name="Id_Reclamacion" Type="Int32" />
+          <Property Name="ID_Empleado_Origen" Type="Int32" />
+          <Property Name="ID_Empleado_Destino" Type="Int32" />
+          <Property Name="ID_Departamento_Origen" Type="Int32" />
+          <Property Name="ID_Departamento_Destino" Type="Int32" />
+          <Property Name="ID_Estado_Origen" Type="Int32" />
+          <Property Name="ID_Estado_Destino" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="Detalle" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK__Respuesta__ID_De__0A9D95DB" FromRole="Respuesta_Empleado" ToRole="Departamento" />
+          <NavigationProperty Name="Departamento1" Relationship="Self.FK__Respuesta__ID_De__0B91BA14" FromRole="Respuesta_Empleado" ToRole="Departamento" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Respuesta__ID_Em__08B54D69" FromRole="Respuesta_Empleado" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado1" Relationship="Self.FK__Respuesta__ID_Em__09A971A2" FromRole="Respuesta_Empleado" ToRole="Empleado" />
+          <NavigationProperty Name="Estado_QR" Relationship="Self.FK__Respuesta__ID_Es__0C85DE4D" FromRole="Respuesta_Empleado" ToRole="Estado_QR" />
+          <NavigationProperty Name="Estado_QR1" Relationship="Self.FK__Respuesta__ID_Es__0D7A0286" FromRole="Respuesta_Empleado" ToRole="Estado_QR" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Respuesta__Id_Qu__06CD04F7" FromRole="Respuesta_Empleado" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Respuesta__Id_Re__07C12930" FromRole="Respuesta_Empleado" ToRole="Reclamacion" />
+          <Property Name="Hora" Type="Time" Precision="7" />
+          <Property Name="ID_Sucursal_Origen" Type="Int32" />
+          <Property Name="ID_Sucursal_Destino" Type="Int32" />
+          <NavigationProperty Name="Sucursal" Relationship="DB_QR_PModel.FK_RespuestaEmpleadoSucursalDestino" FromRole="Respuesta_Empleado" ToRole="Sucursal" />
+          <NavigationProperty Name="Sucursal1" Relationship="DB_QR_PModel.FK_RespuestaEmpleadoSucursalOrigen" FromRole="Respuesta_Empleado" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="ID_Sucursal" />
+          </Key>
+          <Property Name="ID_Sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Empleado_Representante" Type="Int32" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__Id_Suc__5CD6CB2B" FromRole="Sucursal" ToRole="Empleado" />
+          <NavigationProperty Name="Empleado1" Relationship="Self.FK__Sucursal__Id_Emp__5FB337D6" FromRole="Sucursal" ToRole="Empleado" />
+          <NavigationProperty Name="Queja" Relationship="DB_QR_PModel.FK_QuejaSucursal" FromRole="Sucursal" ToRole="Queja" />
+          <NavigationProperty Name="Reclamacion" Relationship="DB_QR_PModel.FK_ReclamacionSucursal" FromRole="Sucursal" ToRole="Reclamacion" />
+          <NavigationProperty Name="Respuesta_Empleado" Relationship="DB_QR_PModel.FK_RespuestaEmpleadoSucursalDestino" FromRole="Sucursal" ToRole="Respuesta_Empleado" />
+          <NavigationProperty Name="Respuesta_Empleado1" Relationship="DB_QR_PModel.FK_RespuestaEmpleadoSucursalOrigen" FromRole="Sucursal" ToRole="Respuesta_Empleado" />
+        </EntityType>
+        <EntityType Name="Tipo_Identificacion">
+          <Key>
+            <PropertyRef Name="Id_Tipo_Identificacion" />
+          </Key>
+          <Property Name="Id_Tipo_Identificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Cliente__Id_Tipo__4E88ABD4" FromRole="Tipo_Identificacion" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Empleado__Id_Tip__59063A47" FromRole="Tipo_Identificacion" ToRole="Empleado" />
+        </EntityType>
+        <EntityType Name="Tipo_Producto">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Producto" />
+          </Key>
+          <Property Name="ID_Tipo_Producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Producto__ID_Tip__6477ECF3" FromRole="Tipo_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Tipo_Queja">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Queja" />
+          </Key>
+          <Property Name="ID_Tipo_Queja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Queja" Relationship="Self.FK__Queja__ID_Tipo_Q__778AC167" FromRole="Tipo_Queja" ToRole="Queja" />
+        </EntityType>
+        <EntityType Name="Tipo_Reclamacion">
+          <Key>
+            <PropertyRef Name="ID_Tipo_Reclamacion" />
+          </Key>
+          <Property Name="ID_Tipo_Reclamacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reclamacion" Relationship="Self.FK__Reclamaci__ID_Ti__01142BA1" FromRole="Tipo_Reclamacion" ToRole="Reclamacion" />
+        </EntityType>
+        <EntityType Name="Transaccion">
+          <Key>
+            <PropertyRef Name="ID_Transaccion" />
+          </Key>
+          <Property Name="ID_Transaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cliente" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="ID_Estado_Transaccion" Type="Int32" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Id_Empleado" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Transacci__ID_Cl__693CA210" FromRole="Transaccion" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Transacci__Id_Em__6B24EA82" FromRole="Transaccion" ToRole="Empleado" />
+          <NavigationProperty Name="Estado_Transaccion" Relationship="Self.FK__Transacci__ID_Es__6A30C649" FromRole="Transaccion" ToRole="Estado_Transaccion" />
+          <NavigationProperty Name="Rel_Transaccion_Producto" Relationship="Self.FK__Rel_Trans__ID_Tr__6E01572D" FromRole="Transaccion" ToRole="Rel_Transaccion_Producto" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_User__5165187F">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Use__5812160E">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__Id_UserNa__797309D9">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__Id_Us__02FC7413">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Id_UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_Dire__5070F446">
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="Id_Direccion" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Direccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_Esta__4F7CD00D">
+          <End Role="Estado_Cliente" Type="Self.Estado_Cliente" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cliente__Id_Tipo__4E88ABD4">
+          <End Role="Tipo_Identificacion" Type="Self.Tipo_Identificacion" Multiplicity="0..1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Identificacion">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Client__75A278F5">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Cl__7F2BE32F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__ID_Cl__693CA210">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="ID_Cliente" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ID_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Id_Em__5EBF139D">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Departamento">
+              <PropertyRef Name="Id_Empleado_Representante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__ID_Dep__5BE2A6F2">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Depart__76969D2E">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_De__00200768">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_De__0A9D95DB">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Departamento_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_De__0B91BA14">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="ID_Departamento" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Departamento_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Direccion__Id_Pa__4BAC3F29">
+          <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pais">
+              <PropertyRef Name="Id_Pais" />
+            </Principal>
+            <Dependent Role="Direccion">
+              <PropertyRef Name="Id_Pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Dir__5AEE82B9">
+          <End Role="Direccion" Type="Self.Direccion" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Direccion">
+              <PropertyRef Name="Id_Direccion" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Direccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Est__59FA5E80">
+          <End Role="Estado_Cliente" Type="Self.Estado_Cliente" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Cliente">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Estado_Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Suc__5CD6CB2B">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleado__Id_Tip__59063A47">
+          <End Role="Tipo_Identificacion" Type="Self.Tipo_Identificacion" Multiplicity="0..1" />
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Identificacion">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="Id_Tipo_Identificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__Id_Emplea__7A672E12">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__Id_Em__03F0984C">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Em__08B54D69">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Empleado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Em__09A971A2">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Empleado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sucursal__Id_Emp__5FB337D6">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Sucursal">
+              <PropertyRef Name="Id_Empleado_Representante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Id_Em__6B24EA82">
+          <End Role="Empleado" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="ID_Empleado" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="Id_Empleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Estado__787EE5A0">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Es__02084FDA">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__0C85DE4D">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Estado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__0D7A0286">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Estado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__123EB7A3">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="ID_Estado_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__ID_Es__1332DBDC">
+          <End Role="Estado_QR" Type="Self.Estado_QR" Multiplicity="0..1" />
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_QR">
+              <PropertyRef Name="ID_Estado_QR" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="ID_Estado_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__ID_Es__6A30C649">
+          <End Role="Estado_Transaccion" Type="Self.Estado_Transaccion" Multiplicity="0..1" />
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Transaccion">
+              <PropertyRef Name="ID_Estado_Transaccion" />
+            </Principal>
+            <Dependent Role="Transaccion">
+              <PropertyRef Name="ID_Estado_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Producto__ID_Tip__6477ECF3">
+          <End Role="Tipo_Producto" Type="Self.Tipo_Producto" Multiplicity="0..1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Producto">
+              <PropertyRef Name="ID_Tipo_Producto" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="ID_Tipo_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rel_Trans__ID_Pr__6EF57B66">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rel_Transaccion_Producto" Type="Self.Rel_Transaccion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Principal>
+            <Dependent Role="Rel_Transaccion_Producto">
+              <PropertyRef Name="ID_Producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Queja__ID_Tipo_Q__778AC167">
+          <End Role="Tipo_Queja" Type="Self.Tipo_Queja" Multiplicity="0..1" />
+          <End Role="Queja" Type="Self.Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Queja">
+              <PropertyRef Name="ID_Tipo_Queja" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Tipo_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Qu__06CD04F7">
+          <End Role="Queja" Type="Self.Queja" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Queja">
+              <PropertyRef Name="ID_Queja" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="Id_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Qu__10566F31">
+          <End Role="Queja" Type="Self.Queja" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Queja">
+              <PropertyRef Name="ID_Queja" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="Id_Queja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reclamaci__ID_Ti__01142BA1">
+          <End Role="Tipo_Reclamacion" Type="Self.Tipo_Reclamacion" Multiplicity="0..1" />
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Reclamacion">
+              <PropertyRef Name="ID_Tipo_Reclamacion" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Tipo_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Re__07C12930">
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Empleado" Type="Self.Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reclamacion">
+              <PropertyRef Name="ID_Reclamacion" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="Id_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Respuesta__Id_Re__114A936A">
+          <End Role="Reclamacion" Type="Self.Reclamacion" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Respuesta_Cliente" Type="Self.Respuesta_Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reclamacion">
+              <PropertyRef Name="ID_Reclamacion" />
+            </Principal>
+            <Dependent Role="Respuesta_Cliente">
+              <PropertyRef Name="Id_Reclamacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rel_Trans__ID_Tr__6E01572D">
+          <End Role="Transaccion" Type="Self.Transaccion" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rel_Transaccion_Producto" Type="Self.Rel_Transaccion_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transaccion">
+              <PropertyRef Name="ID_Transaccion" />
+            </Principal>
+            <Dependent Role="Rel_Transaccion_Producto">
+              <PropertyRef Name="ID_Transaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DB_QR_PEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" />
+          <EntitySet Name="Direccion" EntityType="Self.Direccion" />
+          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
+          <EntitySet Name="Estado_Cliente" EntityType="Self.Estado_Cliente" />
+          <EntitySet Name="Estado_QR" EntityType="Self.Estado_QR" />
+          <EntitySet Name="Estado_Transaccion" EntityType="Self.Estado_Transaccion" />
+          <EntitySet Name="Pais" EntityType="Self.Pais" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Queja" EntityType="Self.Queja" />
+          <EntitySet Name="Reclamacion" EntityType="Self.Reclamacion" />
+          <EntitySet Name="Rel_Transaccion_Producto" EntityType="Self.Rel_Transaccion_Producto" />
+          <EntitySet Name="Respuesta_Cliente" EntityType="Self.Respuesta_Cliente" />
+          <EntitySet Name="Respuesta_Empleado" EntityType="Self.Respuesta_Empleado" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="Tipo_Identificacion" EntityType="Self.Tipo_Identificacion" />
+          <EntitySet Name="Tipo_Producto" EntityType="Self.Tipo_Producto" />
+          <EntitySet Name="Tipo_Queja" EntityType="Self.Tipo_Queja" />
+          <EntitySet Name="Tipo_Reclamacion" EntityType="Self.Tipo_Reclamacion" />
+          <EntitySet Name="Transaccion" EntityType="Self.Transaccion" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_User__5165187F" Association="Self.FK__Cliente__Id_User__5165187F">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Use__5812160E" Association="Self.FK__Empleado__Id_Use__5812160E">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__Id_UserNa__797309D9" Association="Self.FK__Queja__Id_UserNa__797309D9">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__Id_Us__02FC7413" Association="Self.FK__Reclamaci__Id_Us__02FC7413">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_Dire__5070F446" Association="Self.FK__Cliente__Id_Dire__5070F446">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_Esta__4F7CD00D" Association="Self.FK__Cliente__Id_Esta__4F7CD00D">
+            <End Role="Estado_Cliente" EntitySet="Estado_Cliente" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cliente__Id_Tipo__4E88ABD4" Association="Self.FK__Cliente__Id_Tipo__4E88ABD4">
+            <End Role="Tipo_Identificacion" EntitySet="Tipo_Identificacion" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Client__75A278F5" Association="Self.FK__Queja__ID_Client__75A278F5">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Cl__7F2BE32F" Association="Self.FK__Reclamaci__ID_Cl__7F2BE32F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__ID_Cl__693CA210" Association="Self.FK__Transacci__ID_Cl__693CA210">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Id_Em__5EBF139D" Association="Self.FK__Departame__Id_Em__5EBF139D">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Departamento" EntitySet="Departamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__ID_Dep__5BE2A6F2" Association="Self.FK__Empleado__ID_Dep__5BE2A6F2">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Depart__76969D2E" Association="Self.FK__Queja__ID_Depart__76969D2E">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_De__00200768" Association="Self.FK__Reclamaci__ID_De__00200768">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_De__0A9D95DB" Association="Self.FK__Respuesta__ID_De__0A9D95DB">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_De__0B91BA14" Association="Self.FK__Respuesta__ID_De__0B91BA14">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Direccion__Id_Pa__4BAC3F29" Association="Self.FK__Direccion__Id_Pa__4BAC3F29">
+            <End Role="Pais" EntitySet="Pais" />
+            <End Role="Direccion" EntitySet="Direccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Dir__5AEE82B9" Association="Self.FK__Empleado__Id_Dir__5AEE82B9">
+            <End Role="Direccion" EntitySet="Direccion" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Est__59FA5E80" Association="Self.FK__Empleado__Id_Est__59FA5E80">
+            <End Role="Estado_Cliente" EntitySet="Estado_Cliente" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Suc__5CD6CB2B" Association="Self.FK__Empleado__Id_Suc__5CD6CB2B">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleado__Id_Tip__59063A47" Association="Self.FK__Empleado__Id_Tip__59063A47">
+            <End Role="Tipo_Identificacion" EntitySet="Tipo_Identificacion" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__Id_Emplea__7A672E12" Association="Self.FK__Queja__Id_Emplea__7A672E12">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__Id_Em__03F0984C" Association="Self.FK__Reclamaci__Id_Em__03F0984C">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Em__08B54D69" Association="Self.FK__Respuesta__ID_Em__08B54D69">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Em__09A971A2" Association="Self.FK__Respuesta__ID_Em__09A971A2">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sucursal__Id_Emp__5FB337D6" Association="Self.FK__Sucursal__Id_Emp__5FB337D6">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Sucursal" EntitySet="Sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Id_Em__6B24EA82" Association="Self.FK__Transacci__Id_Em__6B24EA82">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Estado__787EE5A0" Association="Self.FK__Queja__ID_Estado__787EE5A0">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Es__02084FDA" Association="Self.FK__Reclamaci__ID_Es__02084FDA">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__0C85DE4D" Association="Self.FK__Respuesta__ID_Es__0C85DE4D">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__0D7A0286" Association="Self.FK__Respuesta__ID_Es__0D7A0286">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__123EB7A3" Association="Self.FK__Respuesta__ID_Es__123EB7A3">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__ID_Es__1332DBDC" Association="Self.FK__Respuesta__ID_Es__1332DBDC">
+            <End Role="Estado_QR" EntitySet="Estado_QR" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__ID_Es__6A30C649" Association="Self.FK__Transacci__ID_Es__6A30C649">
+            <End Role="Estado_Transaccion" EntitySet="Estado_Transaccion" />
+            <End Role="Transaccion" EntitySet="Transaccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Producto__ID_Tip__6477ECF3" Association="Self.FK__Producto__ID_Tip__6477ECF3">
+            <End Role="Tipo_Producto" EntitySet="Tipo_Producto" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rel_Trans__ID_Pr__6EF57B66" Association="Self.FK__Rel_Trans__ID_Pr__6EF57B66">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Rel_Transaccion_Producto" EntitySet="Rel_Transaccion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Queja__ID_Tipo_Q__778AC167" Association="Self.FK__Queja__ID_Tipo_Q__778AC167">
+            <End Role="Tipo_Queja" EntitySet="Tipo_Queja" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Qu__06CD04F7" Association="Self.FK__Respuesta__Id_Qu__06CD04F7">
+            <End Role="Queja" EntitySet="Queja" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Qu__10566F31" Association="Self.FK__Respuesta__Id_Qu__10566F31">
+            <End Role="Queja" EntitySet="Queja" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reclamaci__ID_Ti__01142BA1" Association="Self.FK__Reclamaci__ID_Ti__01142BA1">
+            <End Role="Tipo_Reclamacion" EntitySet="Tipo_Reclamacion" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Re__07C12930" Association="Self.FK__Respuesta__Id_Re__07C12930">
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Respuesta__Id_Re__114A936A" Association="Self.FK__Respuesta__Id_Re__114A936A">
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+            <End Role="Respuesta_Cliente" EntitySet="Respuesta_Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rel_Trans__ID_Tr__6E01572D" Association="Self.FK__Rel_Trans__ID_Tr__6E01572D">
+            <End Role="Transaccion" EntitySet="Transaccion" />
+            <End Role="Rel_Transaccion_Producto" EntitySet="Rel_Transaccion_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuejaSucursal" Association="DB_QR_PModel.FK_QuejaSucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Queja" EntitySet="Queja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReclamacionSucursal" Association="DB_QR_PModel.FK_ReclamacionSucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Reclamacion" EntitySet="Reclamacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestaEmpleadoSucursalDestino" Association="DB_QR_PModel.FK_RespuestaEmpleadoSucursalDestino">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RespuestaEmpleadoSucursalOrigen" Association="DB_QR_PModel.FK_RespuestaEmpleadoSucursalOrigen">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Respuesta_Empleado" EntitySet="Respuesta_Empleado" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_QuejaSucursal">
+          <End Type="DB_QR_PModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="DB_QR_PModel.Queja" Role="Queja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Queja">
+              <PropertyRef Name="ID_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReclamacionSucursal">
+          <End Type="DB_QR_PModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="DB_QR_PModel.Reclamacion" Role="Reclamacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Reclamacion">
+              <PropertyRef Name="ID_Sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestaEmpleadoSucursalDestino">
+          <End Type="DB_QR_PModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="DB_QR_PModel.Respuesta_Empleado" Role="Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Sucursal_Destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RespuestaEmpleadoSucursalOrigen">
+          <End Type="DB_QR_PModel.Sucursal" Role="Sucursal" Multiplicity="0..1" />
+          <End Type="DB_QR_PModel.Respuesta_Empleado" Role="Respuesta_Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="ID_Sucursal" />
+            </Principal>
+            <Dependent Role="Respuesta_Empleado">
+              <PropertyRef Name="ID_Sucursal_Origen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_QR_PModelStoreContainer" CdmEntityContainer="DB_QR_PEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DB_QR_PModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+                <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamento">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Empleado_Representante" ColumnName="Id_Empleado_Representante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Direccion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Direccion">
+              <MappingFragment StoreEntitySet="Direccion">
+                <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+                <ScalarProperty Name="Direccion_1" ColumnName="Direccion_1" />
+                <ScalarProperty Name="Direccion_2" ColumnName="Direccion_2" />
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="ID_Empleado" ColumnName="ID_Empleado" />
+                <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+                <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+                <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Cliente">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Estado_Cliente">
+              <MappingFragment StoreEntitySet="Estado_Cliente">
+                <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_QR">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Estado_QR">
+              <MappingFragment StoreEntitySet="Estado_QR">
+                <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Transaccion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Estado_Transaccion">
+              <MappingFragment StoreEntitySet="Estado_Transaccion">
+                <ScalarProperty Name="ID_Estado_Transaccion" ColumnName="ID_Estado_Transaccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pais">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Pais">
+              <MappingFragment StoreEntitySet="Pais">
+                <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+                <ScalarProperty Name="Nombre_Pais" ColumnName="Nombre_Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="ID_Tipo_Producto" ColumnName="ID_Tipo_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Queja">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Queja">
+              <MappingFragment StoreEntitySet="Queja">
+                <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+                <ScalarProperty Name="ID_Queja" ColumnName="ID_Queja" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+                <ScalarProperty Name="ID_Tipo_Queja" ColumnName="ID_Tipo_Queja" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reclamacion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Reclamacion">
+              <MappingFragment StoreEntitySet="Reclamacion">
+                <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+                <ScalarProperty Name="ID_Reclamacion" ColumnName="ID_Reclamacion" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+                <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+                <ScalarProperty Name="ID_Tipo_Reclamacion" ColumnName="ID_Tipo_Reclamacion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rel_Transaccion_Producto">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Rel_Transaccion_Producto">
+              <MappingFragment StoreEntitySet="Rel_Transaccion_Producto">
+                <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="Cantidad_Producto" ColumnName="Cantidad_Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respuesta_Cliente">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Respuesta_Cliente">
+              <MappingFragment StoreEntitySet="Respuesta_Cliente">
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="ID_Respuesta_Cliente" ColumnName="ID_Respuesta_Cliente" />
+                <ScalarProperty Name="Id_Queja" ColumnName="Id_Queja" />
+                <ScalarProperty Name="Id_Reclamacion" ColumnName="Id_Reclamacion" />
+                <ScalarProperty Name="ID_Estado_Origen" ColumnName="ID_Estado_Origen" />
+                <ScalarProperty Name="ID_Estado_Destino" ColumnName="ID_Estado_Destino" />
+                <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Respuesta_Empleado">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Respuesta_Empleado">
+              <MappingFragment StoreEntitySet="Respuesta_Empleado">
+                <ScalarProperty Name="ID_Sucursal_Destino" ColumnName="ID_Sucursal_Destino" />
+                <ScalarProperty Name="ID_Sucursal_Origen" ColumnName="ID_Sucursal_Origen" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="ID_Respuesta_QR" ColumnName="ID_Respuesta_QR" />
+                <ScalarProperty Name="Id_Queja" ColumnName="Id_Queja" />
+                <ScalarProperty Name="Id_Reclamacion" ColumnName="Id_Reclamacion" />
+                <ScalarProperty Name="ID_Empleado_Origen" ColumnName="ID_Empleado_Origen" />
+                <ScalarProperty Name="ID_Empleado_Destino" ColumnName="ID_Empleado_Destino" />
+                <ScalarProperty Name="ID_Departamento_Origen" ColumnName="ID_Departamento_Origen" />
+                <ScalarProperty Name="ID_Departamento_Destino" ColumnName="ID_Departamento_Destino" />
+                <ScalarProperty Name="ID_Estado_Origen" ColumnName="ID_Estado_Origen" />
+                <ScalarProperty Name="ID_Estado_Destino" ColumnName="ID_Estado_Destino" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id_Empleado_Representante" ColumnName="Id_Empleado_Representante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Identificacion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Identificacion">
+              <MappingFragment StoreEntitySet="Tipo_Identificacion">
+                <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Producto">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Producto">
+              <MappingFragment StoreEntitySet="Tipo_Producto">
+                <ScalarProperty Name="ID_Tipo_Producto" ColumnName="ID_Tipo_Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Queja">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Queja">
+              <MappingFragment StoreEntitySet="Tipo_Queja">
+                <ScalarProperty Name="ID_Tipo_Queja" ColumnName="ID_Tipo_Queja" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Reclamacion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Reclamacion">
+              <MappingFragment StoreEntitySet="Tipo_Reclamacion">
+                <ScalarProperty Name="ID_Tipo_Reclamacion" ColumnName="ID_Tipo_Reclamacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaccion">
+            <EntityTypeMapping TypeName="DB_QR_PModel.Transaccion">
+              <MappingFragment StoreEntitySet="Transaccion">
+                <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+                <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="ID_Estado_Transaccion" ColumnName="ID_Estado_Transaccion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DB_QR_PModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

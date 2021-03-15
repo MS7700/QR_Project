@@ -1,0 +1,87 @@
+﻿@model IEnumerable<QR_Project_5.Models.Respuesta_Cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@ModelMetadataProviders.Current.GetMetadataForType(null, typeof(QR_Project_5.Models.Respuesta_Cliente)).GetDisplayName()</h2>
+
+<p>
+    @Html.ActionLink("Agregar Nuevo", "Create", new { }, new { @class = "btn btn-success btn-xs" })
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Valoracion)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Detalle)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hora)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_QR)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_QR1)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Queja)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reclamacion)
+            <input class="form-control search-input input-sm" onkeyup="myFilter(this)" type="text" placeholder="Filter">
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valoracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Detalle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado_QR.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado_QR1.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Queja.ID_Queja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reclamacion.ID_Reclamacion)
+        </td>
+        <td>
+            <div class="btn-group-vertical">
+                @Html.ActionLink("Editar", "Edit", new { id = item.ID_Respuesta_Cliente }, new { @class = "btn btn-primary btn-xs" })
+                @Html.ActionLink("Detalles", "Details", new { id = item.ID_Respuesta_Cliente }, new { @class = "btn btn-default btn-xs" })
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.ID_Respuesta_Cliente }, new { @class = "btn btn-danger btn-xs" })
+            </div>
+        </td>
+    </tr>
+}
+</tbody>
+</table>

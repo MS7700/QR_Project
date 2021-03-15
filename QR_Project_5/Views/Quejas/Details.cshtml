@@ -1,0 +1,108 @@
+﻿@model QR_Project_5.Models.Queja
+@using QR_Project_5.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>@Html.DisplayNameForModel()</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUsers.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_QR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_QR.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Queja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Queja.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Empleado"))
+    {
+
+        @Html.ActionLink("Responder", "CreateFromQueja", "Respuesta_Empleado", new { id = Model.ID_Queja }, new { @class = "btn btn-primary" })
+    }
+    else if (User.IsInRole("Cliente") && Estado_QR.GetIdByDescripcion(Estado_QR.PENDIENTE_VALORACION) == Model.ID_Estado_QR)
+    {
+        @Html.ActionLink("Responder", "CreateFromQueja", "Respuesta_Cliente", new { id = Model.ID_Queja }, new { @class = "btn btn-primary" })
+    }
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_Queja }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+</p>

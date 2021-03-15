@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_QR_PModelStoreContainer" CdmEntityContainer="DB_QR_PEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="DB_QR_PModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="DB_QR_PModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cliente">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Cliente">
+        <MappingFragment StoreEntitySet="Cliente">
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+          <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id_Empleado_Representante" ColumnName="Id_Empleado_Representante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direccion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Direccion">
+        <MappingFragment StoreEntitySet="Direccion">
+          <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Barrio" ColumnName="Barrio" />
+          <ScalarProperty Name="Direccion_1" ColumnName="Direccion_1" />
+          <ScalarProperty Name="Direccion_2" ColumnName="Direccion_2" />
+          <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleado">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Empleado">
+        <MappingFragment StoreEntitySet="Empleado">
+          <ScalarProperty Name="ID_Empleado" ColumnName="ID_Empleado" />
+          <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+          <ScalarProperty Name="Id_Direccion" ColumnName="Id_Direccion" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+          <ScalarProperty Name="Id_Sucursal" ColumnName="Id_Sucursal" />
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Cliente">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Estado_Cliente">
+        <MappingFragment StoreEntitySet="Estado_Cliente">
+          <ScalarProperty Name="Id_Estado_Cliente" ColumnName="Id_Estado_Cliente" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_QR">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Estado_QR">
+        <MappingFragment StoreEntitySet="Estado_QR">
+          <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado_Transaccion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Estado_Transaccion">
+        <MappingFragment StoreEntitySet="Estado_Transaccion">
+          <ScalarProperty Name="ID_Estado_Transaccion" ColumnName="ID_Estado_Transaccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pais">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Pais">
+        <MappingFragment StoreEntitySet="Pais">
+          <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
+          <ScalarProperty Name="Nombre_Pais" ColumnName="Nombre_Pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="ID_Tipo_Producto" ColumnName="ID_Tipo_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Queja">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Queja">
+        <MappingFragment StoreEntitySet="Queja">
+          <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+          <ScalarProperty Name="ID_Queja" ColumnName="ID_Queja" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="ID_Tipo_Queja" ColumnName="ID_Tipo_Queja" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reclamacion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Reclamacion">
+        <MappingFragment StoreEntitySet="Reclamacion">
+          <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+          <ScalarProperty Name="ID_Reclamacion" ColumnName="ID_Reclamacion" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Id_UserName" ColumnName="Id_UserName" />
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="ID_Tipo_Reclamacion" ColumnName="ID_Tipo_Reclamacion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="ID_Estado_QR" ColumnName="ID_Estado_QR" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rel_Transaccion_Producto">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Rel_Transaccion_Producto">
+        <MappingFragment StoreEntitySet="Rel_Transaccion_Producto">
+          <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="Cantidad_Producto" ColumnName="Cantidad_Producto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Respuesta_Cliente">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Respuesta_Cliente">
+        <MappingFragment StoreEntitySet="Respuesta_Cliente">
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="ID_Respuesta_Cliente" ColumnName="ID_Respuesta_Cliente" />
+          <ScalarProperty Name="Id_Queja" ColumnName="Id_Queja" />
+          <ScalarProperty Name="Id_Reclamacion" ColumnName="Id_Reclamacion" />
+          <ScalarProperty Name="ID_Estado_Origen" ColumnName="ID_Estado_Origen" />
+          <ScalarProperty Name="ID_Estado_Destino" ColumnName="ID_Estado_Destino" />
+          <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Respuesta_Empleado">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Respuesta_Empleado">
+        <MappingFragment StoreEntitySet="Respuesta_Empleado">
+          <ScalarProperty Name="ID_Sucursal_Destino" ColumnName="ID_Sucursal_Destino" />
+          <ScalarProperty Name="ID_Sucursal_Origen" ColumnName="ID_Sucursal_Origen" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="ID_Respuesta_QR" ColumnName="ID_Respuesta_QR" />
+          <ScalarProperty Name="Id_Queja" ColumnName="Id_Queja" />
+          <ScalarProperty Name="Id_Reclamacion" ColumnName="Id_Reclamacion" />
+          <ScalarProperty Name="ID_Empleado_Origen" ColumnName="ID_Empleado_Origen" />
+          <ScalarProperty Name="ID_Empleado_Destino" ColumnName="ID_Empleado_Destino" />
+          <ScalarProperty Name="ID_Departamento_Origen" ColumnName="ID_Departamento_Origen" />
+          <ScalarProperty Name="ID_Departamento_Destino" ColumnName="ID_Departamento_Destino" />
+          <ScalarProperty Name="ID_Estado_Origen" ColumnName="ID_Estado_Origen" />
+          <ScalarProperty Name="ID_Estado_Destino" ColumnName="ID_Estado_Destino" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sucursal">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Sucursal">
+        <MappingFragment StoreEntitySet="Sucursal">
+          <ScalarProperty Name="ID_Sucursal" ColumnName="ID_Sucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id_Empleado_Representante" ColumnName="Id_Empleado_Representante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Identificacion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Identificacion">
+        <MappingFragment StoreEntitySet="Tipo_Identificacion">
+          <ScalarProperty Name="Id_Tipo_Identificacion" ColumnName="Id_Tipo_Identificacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Producto">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Producto">
+        <MappingFragment StoreEntitySet="Tipo_Producto">
+          <ScalarProperty Name="ID_Tipo_Producto" ColumnName="ID_Tipo_Producto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Queja">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Queja">
+        <MappingFragment StoreEntitySet="Tipo_Queja">
+          <ScalarProperty Name="ID_Tipo_Queja" ColumnName="ID_Tipo_Queja" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Reclamacion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Tipo_Reclamacion">
+        <MappingFragment StoreEntitySet="Tipo_Reclamacion">
+          <ScalarProperty Name="ID_Tipo_Reclamacion" ColumnName="ID_Tipo_Reclamacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaccion">
+      <EntityTypeMapping TypeName="DB_QR_PModel.Transaccion">
+        <MappingFragment StoreEntitySet="Transaccion">
+          <ScalarProperty Name="ID_Transaccion" ColumnName="ID_Transaccion" />
+          <ScalarProperty Name="ID_Cliente" ColumnName="ID_Cliente" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="ID_Estado_Transaccion" ColumnName="ID_Estado_Transaccion" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="DB_QR_PModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

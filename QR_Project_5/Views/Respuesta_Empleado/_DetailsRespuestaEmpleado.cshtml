@@ -1,0 +1,85 @@
+﻿@model QR_Project_5.Models.Respuesta_Empleado
+
+<div class="well">
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Identificacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal.Nombre)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado1.Identificacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento1.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal1.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_QR1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_QR1.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle)
+        </dd>
+
+
+    </dl>
+</div>

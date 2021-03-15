@@ -1,0 +1,28 @@
+﻿@model QR_Project_5.Models.Queja
+@using QR_Project_5.Models
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Agregar</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    @Html.Partial("_QuejaAdmin", Model)
+}
+else if (User.IsInRole("Empleado"))
+{
+    @Html.Partial("_QuejaEmpleado", Model)
+}
+else if (User.IsInRole("Cliente"))
+{
+    @Html.Partial("_QuejaCliente", Model)
+}
+
+
+<div>
+    @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-default" })
+</div>
+
+

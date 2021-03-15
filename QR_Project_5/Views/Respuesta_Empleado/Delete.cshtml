@@ -1,0 +1,128 @@
+﻿@model QR_Project_5.Models.Respuesta_Empleado
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás seguro de que desea eliminarlo?</h3>
+<div>
+    <h4>@Html.DisplayNameForModel()</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Detalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Detalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento1.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleado1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleado1.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_QR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_QR.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_QR1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_QR1.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Queja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Queja.ID_Queja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reclamacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reclamacion.ID_Reclamacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal1.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Volver", "Index",null,new { @class= "btn btn-default" })
+        </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace QR_Project_5.Guardado
+{
+	public class Guardado
+	{
+		private DB_QR_PEntities db = new DB_QR_PEntities();
+        const string Empleado = "Empleado";
+        const string Cliente = "Cliente";
+        const string Admin = "Admin";
+        // GET: Quejas
+
+        [Authorize]
+        public ActionResult Index()
+        {
+            List<Queja> quejas = new List<Queja>();
+            if (User.IsInRole(Admin))
+            {
+                
+                var queja = db.Queja.Include(q => q.AspNetUsers).Include(q => q.Cliente).Include(q => q.Departamento).Include(q => q.Empleado).Include(q => q.Estado_QR).Include(q => q.Tipo_Queja);                quejas.AddRange(queja.ToList<Queja>());
+
+            }
+            else if (User.IsInRole(Empleado))
+            {
+                
+                string id = User.Identity.GetUserId();
+                var Empleado = db.Empleado.Where(e => e.Id_UserName == id).First<Empleado>();
+                var Departamento_Representante = db.Departamento.Where(d => d.Id_Empleado_Representante == Empleado.ID_Empleado);
+                var queja = db.Queja.Where(q => q.Id_Empleado == Empleado.ID_Empleado || (q.Empleado == null && q.ID_Departamento == Empleado.ID_Departamento) || q.Id_UserName == Empleado.Id_UserName || Departamento_Representante.Contains(q.Departamento));
+                quejas.AddRange(queja.ToList<Queja>());
+            }
+            else if (User.IsInRole(Cliente))
+            {
+                string id = User.Identity.GetUserId();
+                var Cliente = db.Cliente.Where(c => c.Id_UserName == id).First<Cliente>();
+                var queja = db.Queja.Where(q => q.ID_Cliente == Cliente.ID_Cliente);
+                quejas.AddRange(queja.ToList<Queja>());
+            }
+            return View(quejas);
+        }
+
+	}
+}
